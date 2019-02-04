@@ -24,6 +24,29 @@ function renderNewTask(text, index) {
 
 function deleteTask(index) {
   taskList.splice(index, 1);
+  let taskToDelete = document.getElementById(`${index}`);
+  taskListDOM.removeChild(taskToDelete);
+}
+
+function addEditField(index) {
+  let TaskEdit = document.getElementById(`${index}`);
+  let editInput = document.createElement('input');
+  editInput.type = 'text';
+  editInput.id = `edit${index}`;
+  editInput.className = 'edit-input';
+  editInput.placeholder = 'Edit the task';
+  // create submit change button
+  let submitBtn = document.createElement('button');
+  submitBtn.innerHTML = 'Update Task';
+  submitBtn.onclick = function() {
+    updateTask(index);
+  }
+  // add buttons to DOM 
+  TaskEdit.appendChild(editInput);
+  TaskEdit.appendChild(submitBtn);
+}
+
+function updateTask(index) {
+  let editInput = document.getElementById(`edit${index}`)å;
   
-  taskListDOM.removeChild
 }
