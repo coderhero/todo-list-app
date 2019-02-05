@@ -47,6 +47,12 @@ function addEditField(index) {
 }
 
 function updateTask(index) {
-  let editInput = document.getElementById(`edit${index}`)å;
-  
+  let editInput = document.getElementById(`edit${index}`);
+  let updatedTask = editInput.value;
+  taskList[index] = updateTask;
+  // update value in the DOM
+  let task = document.getElementById(`${index}`);
+  task.innerHTML = updatedTask;
+  appendOptionButtons(index, task);
+
 }
