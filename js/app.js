@@ -53,6 +53,22 @@ function updateTask(index) {
   // update value in the DOM
   let task = document.getElementById(`${index}`);
   task.innerHTML = updatedTask;
-  appendOptionButtons(index, task);
+  appendOptionBtns(index, task);
 
+}
+
+function appendOptionBtns(index, task) {
+  let deleteBtn = document.createElement('button');
+  deleteBtn.innerHTML = 'X';
+  deleteBtn.onclick = function() {
+    deleteTask(index);
+  }
+  let editBtn = document.createElement('button');
+  editBtn.innerHTML = 'edit';
+  editBtn.onclick = function() {
+    addEditField(index);
+
+  }
+  task.appendChild(deleteBtn);
+  task.appendChild(editBtn);
 }
